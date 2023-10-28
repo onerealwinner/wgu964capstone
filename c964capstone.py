@@ -111,11 +111,16 @@ tagsOverview["percentRecipes"] = tagsOverview["counts"] / recipeCount
 tagsCount = len(tagsOverview)
 
 ### Really the start of the page content....
+st.write("""The purpose behind this site is to help identify recipe similarties.  
+         Suppose you know you have the ingredients for a specific recipe, but you want to try something new.
+         Select the recipe you know for the list below, and the site will output some recommendations for you to look up and try.
+         """)
+
 st.write("""We have """, recipesCount, "recipes")
 
 st.write("""These use """, ingredientsCount, "ingredients and have", tagsCount, "descriptive tags")
 
-st.subheader('pick a recipe')
+st.subheader('Pick a Recipe')
 recipe = st.selectbox('recipes', dfRecipes.sort_values(by='name', ascending=True)['name'])
 
 #now show the recommendation
@@ -191,7 +196,6 @@ if (filterType == "TF-IDF"):
     st.dataframe(matches)
 
 #end if TFIDF Method
-
 
 #components.html("""<hr style="height:3px;margin:3px;padding:3px;border:none;color:#333;background-color:#333;" /> """)
 st.write('')
